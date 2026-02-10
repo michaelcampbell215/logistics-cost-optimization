@@ -1,48 +1,87 @@
-Global Supply Chain Performance & Cost Optimization
-This repository contains the analysis and Tableau dashboard for a project focused on optimizing a global supply chain's delivery performance and logistics costs.
+# Global Supply Chain Performance
 
-Objective
-The primary goal of this project was to design and implement an analytical tool for a global logistics team. This tool provides interactive reports and deep insights into delivery performance and cost efficiency, enabling data-driven decisions for vendor management, shipment routing, and cost negotiations.
+**Case Study: Cost Optimization**
 
-Dataset
-The analysis was performed on the SCMS_Delivery_History_Dataset, sourced from Kaggle. It contains historical data on shipments, including vendors, costs, delivery dates, and product details.
+> **Executive Summary:**  
+> A global logistics team needed deeper visibility into shipment reliability and cost efficiency. This project engineered an interactive analytics tool using Python for data engineering and Tableau for visualization. The analysis revealed an 88.5% On-Time Delivery (OTD) rate and identified that 99% of logistics costs were concentrated in just two product groups, providing a clear target for cost-reduction negotiations.
 
-Link: SCMS_Delivery_History_Dataset on Kaggle
+---
 
-Tools & Technologies
-Data Cleaning & Transformation: Python (Pandas)
+| **OTD Rate**                     | **Cost Focus**                 | **Mode Reliability**            | **Lead Time**                      |
+| :------------------------------- | :----------------------------- | :------------------------------ | :--------------------------------- |
+| **88.5%**<br>Overall Performance | **ARV / HRDT**<br>99% of Spend | **Air Charter**<br>100% On-Time | **88 vs 144 Days**<br>Air vs Ocean |
 
-Data Querying: SQL
+---
 
-Data Visualization & Dashboarding: Tableau
+## Interactive Dashboard
 
-Analysis & Key Findings
-Process
-The project followed a structured analytical process:
+[**View the Interactive Dashboard on Tableau Public**](https://public.tableau.com/views/supplychain_17339884476900/GLOBALDELIVERYPERFORMANCEOVERVIEW?:showVizHome=no&:embed=true)
 
-Data Cleaning and Transformation: Performed extensive data wrangling in Python to handle missing values, correct data types (e.g., converting dates and costs to numeric formats), and standardize categorical data like vendor names.
+---
 
-Feature Engineering: Created new calculated metrics to provide deeper insights, including On-Time Delivery (OTD) Rate, Delivery Lead Time, Total Logistics Cost, and Freight Cost as a Percentage of Line Item Value.
+## The Analytical Process
 
-Dashboard Development: Designed and built two interactive dashboards in Tableau to visualize KPIs and allow for dynamic filtering by country, shipment mode, and vendor.
+### 1. Data Engineering (Python)
 
-Key Findings
-Overall OTD: The analysis revealed an overall On-Time Delivery Rate of 88.51%, indicating strong but improvable performance.
+**Leveraged Pandas for extensive data wrangling.**
 
-Shipment Mode Impact: Air Charter and Truck modes achieved a perfect 100% OTD rate, while the higher-volume Air (88.89%) and Ocean (84.34%) modes were the primary sources of delays.
+- Handled missing capture dates and non-numeric costs.
+- Imputed NULLs for "Line Item Insurance" and "Shipment Modes".
+- Standardized Weight & Freight Cost conversions for accurate aggregation.
 
-Lead Time Variance: A significant difference in average lead times was found between modes (e.g., Air at 88 days vs. Ocean at 144 days), impacting planning and customer expectations.
+### 2. KPI Development
 
-Cost Concentration: A critical insight was that the ARV and HRDT product groups accounted for over 99% of total logistics costs, making them prime targets for optimization efforts.
+**Identified core metrics critical to logistics spend.**
 
-Recommendations
-Based on the findings, the following actionable recommendations were developed:
+- **OTD Rate:** Calculated by Country & Vendor to pinpoint delay sources.
+- **Freight %:** Measured against Line Item Value to track efficiency.
 
-Re-evaluate Shipment Mode Strategies: Conduct a detailed cost-benefit analysis to determine if shifting volume from standard Air and Ocean to more reliable modes like Air Charter is financially viable to improve the OTD rate for critical shipments.
+### 3. Interactive Visualization
 
-Initiate a Targeted Cost-Reduction Initiative: Focus all initial cost-saving efforts on the ARV and HRDT product groups, as they represent the largest opportunity for impact. A deeper analysis into their specific cost drivers is recommended.
+**Deployed Tableau dashboards with dynamic filters.**
+Enabled ad-hoc exploration by Country, Shipment Mode, and Product Group to support real-time decision-making.
 
-Key Deliverables
-Tableau Dashboard 1: Global Delivery Performance Overview: A holistic view of delivery reliability and speed.
+---
 
-Tableau Dashboard 2: Logistics Cost Analysis: A breakdown of total logistics spend and cost efficiencies.
+## Key Insights & Strategy
+
+### 1. Cost Concentration
+
+**Insight:** ARV and HRDT product groups account for **99% of total logistics spend** ($1.46B+).
+**Strategy:** Focus all initial cost-saving negotiations on these high-volume routes.
+
+### 2. Mode Reliability
+
+**Insight:** Ocean shipments (84% OTD) and standard Air (88% OTD) drive most delays, while Air Charter performed perfectly.
+**Strategy:** Conduct a cost-benefit analysis on shifting critical, low-volume shipments to Air Charter to improve reliability.
+
+### 3. Lead Time Variance
+
+**Insight:** Significant variability between Air (88 days) and Ocean (144 days) necessitates distinct planning horizons.
+**Strategy:** Update inventory reorder points to reflect real-world lead times by mode.
+
+---
+
+## Technical Implementation
+
+### Data Structure
+
+The analysis utilizes the SCMS Delivery History dataset:
+
+- **`SCMS_Delivery_History_Dataset.csv`**: Historical shipment data including vendors, costs, and dates.
+- **`supply_chain.ipynb`**: Jupyter Notebook containing the data cleaning and feature engineering logic.
+
+### Setup Instructions
+
+1.  **Prerequisites:** Python 3.x (Pandas, NumPy) and Jupyter Notebook.
+2.  **Usage:**
+    - Run `supply_chain.ipynb` to process the raw CSV.
+    - The notebook outputs `shipping_data_clean.csv`.
+    - Import the clean CSV into Tableau to refresh the visualizations.
+
+---
+
+## Contact
+
+**Questions on this Analysis?**
+[Email](mailto:mcam215@gmail.com) | [LinkedIn](https://linkedin.com/in/michaelcampbellanalyst) | [GitHub](https://github.com/michaelcampbell215)
