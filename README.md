@@ -1,4 +1,4 @@
-# Global Supply Chain Performance
+# Logistics Cost Optimization
 
 **Case Study: Cost Optimization**
 
